@@ -17,24 +17,21 @@
 
 package com.theaigames.game.warlight2;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-import java.lang.Thread;
-import java.util.zip.*;
-import java.util.Properties;
-import java.net.URL;
-
 import com.theaigames.engine.Engine;
 import com.theaigames.engine.Logic;
 import com.theaigames.engine.io.IOPlayer;
-
+import com.theaigames.game.warlight2.map.Map;
 import com.theaigames.game.warlight2.move.AttackTransferMove;
+import com.theaigames.game.warlight2.move.Move;
 import com.theaigames.game.warlight2.move.MoveResult;
 import com.theaigames.game.warlight2.move.PlaceArmiesMove;
-import com.theaigames.game.warlight2.map.Map;
 
 /**
  * Warlight2 class
@@ -215,6 +212,10 @@ public class Warlight2 implements Logic
 			playedGame = this.processor.getFullPlayedGame();
 			
 		playedGame.removeLast();
+		
+		//id;owner;armies
+		out.append("map " + playedGame.get(0).getMap().getMapString() + "\n");
+
 		int roundNr = 0;
 		for(MoveResult moveResult : playedGame)
 		{
@@ -232,7 +233,6 @@ public class Warlight2 implements Logic
 					}
 					
 				}
-				out.append("map " + moveResult.getMap().getMapString() + "\n");
 			}
 			else
 			{
@@ -240,7 +240,6 @@ public class Warlight2 implements Logic
 				roundNr++;
 			}
 		}
-		
 		if(winner != null)
 			out.append(winner.getName() + " won\n");
 		else
@@ -266,6 +265,14 @@ public class Warlight2 implements Logic
 		
 		System.out.println("Saving the game...");
 		// do stuff here if you want to save results
+		File f = new File("GameLog.txt");
+		try {
+			f.createNewFile();
+			PrintWriter writer = new PrintWriter(f);
+			writer.println(getPlayedGame(winner, "both"));
+			writer.close();
+		} catch (IOException e) {e.printStackTrace();}
+		
 	}
 	
 	/**
@@ -274,10 +281,10 @@ public class Warlight2 implements Logic
 	 * @throws Exception
 	 */
 	public static void main(String args[]) throws Exception
-	{	
-		String mapFile = args[0];
-		String bot1Cmd = args[1];
-		String bot2Cmd = args[2];
+	{		
+		String mapFile = "/home/jalal/workspace/warlight2-engine/example-map.txt";
+		String bot1Cmd = "/home/jalal/Desktop/WarlightBot.jar";
+		String bot2Cmd = "java -cp /home/jalal/workspace/Warlight/bin bot.BotStarter";
 
 		// Construct engine
         Engine engine = new Engine();

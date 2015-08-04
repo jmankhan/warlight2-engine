@@ -54,6 +54,7 @@ public class InputStreamGobbler extends Thread {
                 if (!lastLine.contains("VM warning") && buffer.length() < 1000000) { //catches bots that return way too much (infinite loop)
                     if (this.type.equals("output"))
                 	   this.player.response = lastLine;
+
                     buffer.append(lastLine + "\n");
                 }
             }

@@ -1,0 +1,29 @@
+Strategies
+	Picking Strategies
+		---note: we have a list of regions to choose from, but not every region is available to be picked
+		---note: wastelands require at least 2 neutral regions in the super region, but are otherwise randomly placed
+		---note: wastelands are determined after the picking phase but the amount is always 1/2 of #super regions
+
+		-Focus
+			Cluster/Defense -- stronghold, 				low mobility
+			Vision  		-- map control, 			poor scaling
+			Aggression  	-- game is decided quickly, high risk
+
+
+		-Formation
+			U  away 		--weak point
+			∩  towards 		--better distribution but lose vision
+			o  donut/circle --inefficient travel
+		
+		-Technique
+			Cluster/Defense -- Super region, continent
+			Vision 			-- Spread thin, scout, sentry
+			Aggression		-- Bottleneck, invade, one man army
+
+		-Counter-Technique
+			Cluster/Defense	-- Aggression -> Vision
+			Vision 			-- Defense
+			Aggression		-- Vision -> Defense
+
+		---note: it will be hard to distinguish between aggression and vision in the picking phase
+		---note: Edge crawler is another technique we talked about, but it seems more of a counter strategy than a strategy 

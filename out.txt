@@ -1,0 +1,13 @@
+setting up game
+Starting game...
+stopping...
+winner: draw
+Saving the game...
+Player 1 stats: 
+Armies left: 23
+Time left: 10000
+
+Player2 stats: 
+Armies left: 23
+Time left: 10000
+Done.
