@@ -1,2 +1,0 @@
-Game Begin
-determinant: 2147483647
