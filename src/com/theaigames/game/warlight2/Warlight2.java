@@ -283,7 +283,7 @@ public class Warlight2 implements Logic
 	public static void main(String args[]) throws Exception
 	{		
 		String mapFile = "/home/jalal/workspace/warlight2-engine/example-map.txt";
-		String bot1Cmd = "/home/jalal/Desktop/WarlightBot.jar";
+		String bot1Cmd = "/home/jalal/workspace/warlight2-engine/WarlightBot.jar";
 		String bot2Cmd = "java -cp /home/jalal/workspace/Warlight/bin bot.BotStarter";
 
 		// Construct engine
